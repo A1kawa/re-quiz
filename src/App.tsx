@@ -17,8 +17,8 @@ function App() {
 
   const detectKey = (e: KeyboardEvent) => {
     console.log(e.key);
-    console.log(currentQuestion.rightAnswer);
     if (e.key === currentQuestion.rightAnswer[0] || e.key === currentQuestion.rightAnswer[1]) {
+      document.removeEventListener('keydown', detectKey, true);
       const element = document.getElementById(currentQuestion.rightAnswer[0]);
       if (element) {
         element.style.backgroundColor = 'green';
